@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#ffffff">
+  <title>Dashboard · PortWatch VI (private)</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="../assets/js/theme.js"></script>
+  <script type="module" src="dashboard.js"></script>
+</head>
+<body>
+  <header class="nav is-scrolled">
+    <div class="wrap nav-inner">
+      <a class="brand" href="../"><span>PortWatch<b>VI</b></span></a>
+      <span class="db-badge">Private dashboard</span>
+      <span class="nav-updated" id="db-status">Not signed in</span>
+      <button class="toggle" id="db-signout" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main class="wrap db">
+    <section id="db-login" class="card db-login" hidden>
+      <h1>Sign in</h1>
+      <p>You'll get a one-time sign-in link by email. Only the site's admin account can see anything here.</p>
+      <form id="login-form">
+        <input type="email" name="email" required placeholder="Email address" autocomplete="email">
+        <button class="gh-link" type="submit">Email me a link</button>
+      </form>
+      <p class="fine" id="login-note"></p>
+    </section>
+
+    <section id="db-app" hidden>
+      <div class="db-live card">
+        <div><span class="live-dot"></span><b id="live-count">…</b><span>people on the site right now<small id="live-note">counting…</small></span></div>
+        <ul id="live-pages"></ul>
+      </div>
+
+      <div class="db-tiles" id="tiles"></div>
+
+      <div class="db-grid">
+        <div class="card db-panel"><h3>Views, last 48 hours</h3><div id="chart-hourly" class="db-chart"></div></div>
+        <div class="card db-panel"><h3>Views, last 30 days</h3><div id="chart-daily" class="db-chart"></div></div>
+        <div class="card db-panel"><h3>Top pages · 7 days</h3><ol id="top-pages" class="db-list"></ol></div>
+        <div class="card db-panel"><h3>Where visitors come from · 7 days</h3><ol id="top-refs" class="db-list"></ol></div>
+      </div>
+
+      <div class="card db-panel db-wide">
+        <h3>Waiting for review <span id="pending-count" class="db-pill">0</span></h3>
+        <p class="fine">Posts that contain links are held here. Approve real ones; hide spam, lures and anything with download links.</p>
+        <div id="queue"></div>
+      </div>
+
+      <div class="db-grid">
+        <div class="card db-panel"><h3>Recent posts</h3><div id="recent"></div></div>
+        <div class="card db-panel"><h3>Live activity</h3><ol id="feed" class="db-feed"></ol></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
